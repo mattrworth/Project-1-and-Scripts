@@ -1,0 +1,49 @@
+Azure Network and Commands
+
+Jumpbox Admin: RedAdmin
+SSH Passphrase: cloud
+Public IP: 52.170.157.116 (NOTE: This could change if VM is restarted)
+Private IP: 10.0.0.4
+Connection CMD: ssh -i ./cloud RedAdmin@PublicIP
+Public Key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCpoZ2GyGf7sdGN53XgOgBXFW9JEaVd/D0mt/4doPzo9YIxbKDEpUMi1skImI5Qn3/URm1GRX6zmwTKeJ9XIU1hwmT46b97TWDxcEHudg50Z2NcynUMFePK7N9I/wPHSistWz2C0UCOm/AJuhx20caLcdCCAhEqd8eC+x0QdsXkjZzO2NGrRPro2w8KgrgPrHXkK0mI75bVLLcnLriEBHL/WhyaBrnkpFm1BFP9C8Hi5Kps3mTATbPqhGqDXkXwQJVvJPpdIw9JEhKoQMa3qOysP9+bsSh4+8Oe6l+BW12z2I8ZngxTWrCvB6KMOoDvQRoQiUZm6VY+p0ncg8XL2pmd
+
+To list what containers are available:
+sudo docker container list -a
+
+Start Ansible Container (zealous_brown) in Jumpbox
+sudo docker start zealous_brown
+sudo docker attach zealous_brown
+
+Webserver after attached to Ansible
+cd /etc/ansible/
+ansible-playbook pentest.yml
+
+ELK-Server after attached to Ansible
+ansible-playbook elkcong.yml
+
+Filebeat Install after attached to Ansible
+ansible-playbook filebeat-playbook.yml
+
+Metricbeat Install after attached to Ansible
+ansible-playbook metricbeat-playbook.yml
+
+DVWA-VM1 Admin: RedAdmin
+SSH Passphrase: <empty>
+Public IP: 40.114.24.119 (NOTE: This is assigned by the load balancer / backend pool)
+Private IP: 10.0.0.5
+Connection CMD: ssh RedAdmin@10.0.0.5 (NOTE: This is from the Jumpbox)
+Public Key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMNVBkZAaNHvR9d74HYY3XoiRU8aVD0KnIoaVTRghKsQIExDSbP+PIhVaLF9yzBaezgDTT2BpBVqs9dy3mYEBqVkZpMYWl3SPllYSRyR9rhfrQ0DfVT2C5RGNjJR9JHXzeKn+XbN3EogKdRMIQZEnUPDS5Xmcb52Hzudz2NGwIEz2EaMaa+5Z4gukrGmUzSCwob1B0nWCPlIpXoOctrU9mGvY3fBQz6li3J8QG9/5al7mPg6BRsujp44o7NAF1CTqqi3S3zD4Igsb+HaScY/qlieA9PpUEuyc0jw2PlhZFEUu6qyD7kg1TA2Uq99r7BFW8GRwh//nq+tgfw6Wu+CpD
+
+DVWA-VM2 Admin: RedAdmin
+SSH Passphrase: <empty>
+Public IP: 40.114.24.119 (NOTE: This is assigned by the load balancer / backend pool)
+Private IP: 10.0.0.6
+Connection CMD: ssh RedAdmin@10.0.0.6 (NOTE: This is from the Jumpbox)
+Public Key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMNVBkZAaNHvR9d74HYY3XoiRU8aVD0KnIoaVTRghKsQIExDSbP+PIhVaLF9yzBaezgDTT2BpBVqs9dy3mYEBqVkZpMYWl3SPllYSRyR9rhfrQ0DfVT2C5RGNjJR9JHXzeKn+XbN3EogKdRMIQZEnUPDS5Xmcb52Hzudz2NGwIEz2EaMaa+5Z4gukrGmUzSCwob1B0nWCPlIpXoOctrU9mGvY3fBQz6li3J8QG9/5al7mPg6BRsujp44o7NAF1CTqqi3S3zD4Igsb+HaScY/qlieA9PpUEuyc0jw2PlhZFEUu6qyD7kg1TA2Uq99r7BFW8GRwh//nq+tgfw6Wu+CpD
+
+ELK-Server Admin: RedAdmin
+SSH Passphrase: <empty>
+Public IP: 137.117.42.134 (NOTE: This could change if VM is restarted)
+Private IP: 10.0.0.8
+Connection CMD: ssh RedAdmin@10.0.0.8 (NOTE: This is from the Jumpbox)
+Public Key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMNVBkZAaNHvR9d74HYY3XoiRU8aVD0KnIoaVTRghKsQIExDSbP+PIhVaLF9yzBaezgDTT2BpBVqs9dy3mYEBqVkZpMYWl3SPllYSRyR9rhfrQ0DfVT2C5RGNjJR9JHXzeKn+XbN3EogKdRMIQZEnUPDS5Xmcb52Hzudz2NGwIEz2EaMaa+5Z4gukrGmUzSCwob1B0nWCPlIpXoOctrU9mGvY3fBQz6li3J8QG9/5al7mPg6BRsujp44o7NAF1CTqqi3S3zD4Igsb+HaScY/qlieA9PpUEuyc0jw2PlhZFEUu6qyD7kg1TA2Uq99r7BFW8GRwh//nq+tgfw6Wu+CpD
